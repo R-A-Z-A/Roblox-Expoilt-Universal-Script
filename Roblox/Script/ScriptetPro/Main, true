@@ -1,0 +1,169 @@
+-- Load the Orion Library
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+
+-- Create a window
+local Window = OrionLib:MakeWindow({
+    Name = "🍀LeafUI🍀",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionConfig"
+})
+
+-- Create a tab
+local Tab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+-- Create a section
+local Section = Tab:AddSection({
+    Name = "Key Section"
+})
+
+-- Add a text box
+local KeyBox = Section:AddTextbox({
+    Name = "Enter Key",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(value)
+        _G.EnteredKey = value
+    end
+})
+
+-- Add a button to get the key
+Section:AddButton({
+    Name = "Get Key",
+    Callback = function()
+        setclipboard("https://rekonise.com/roblox-key-q7q11")
+        print("Link copied to clipboard!")
+    end
+})
+
+-- Add a button to check the key
+Section:AddButton({
+    Name = "Check Key",
+    Callback = function()
+        local correctKey = "20240502115728"
+        if _G.EnteredKey == correctKey then
+            OrionLib:MakeNotification({
+                Name = "Key Status",
+                Content = "Correct Key",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            -- Load a new OrionHub UI without any buttons
+            local NewWindow = OrionLib:MakeWindow({
+                Name = "🍀LeafHub🍀",
+                HidePremium = false,
+                SaveConfig = true,
+                ConfigFolder = "NewOrionConfig"
+            })
+            local NewTab = NewWindow:MakeTab({
+                Name = "TsbgScripts",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            local NewSection = NewTab:AddSection({
+                Name = "Scripts"
+            })
+            -- Add a button to load the Hub script
+            NewSection:AddButton({
+                Name = "Animations",
+                Callback = function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoName-010/AFAS3000/main/Loader"))()
+                end
+            })
+            -- Add the Five Seasons script
+            NewSection:AddButton({
+                Name = "Five Seasons with Cutscene",
+                Callback = function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/AlperPro/shhh/main/KJ%20Script.lua"))()
+                end
+            })
+            -- Add a new category named MVSD
+            local MVSDTab = NewWindow:MakeTab({
+                Name = "MVSD",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            local MVSDSection = MVSDTab:AddSection({
+                Name = "All in One Script"
+            })
+            MVSDSection:AddButton({
+                Name = "All in One Script",
+                Callback = function()
+                    loadstring(game:HttpGet("https://wastebin-1-j0561772.deta.app/raw/yzeggawo"))()
+                end
+            })
+            -- Add a new category named Toh
+            local TohTab = NewWindow:MakeTab({
+                Name = "Toh",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            local TohSection = TohTab:AddSection({
+                Name = "God Mode"
+            })
+            TohSection:AddButton({
+                Name = "God Mode",
+                Callback = function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/scowscripts/scowsscripts/main/TowerOfHacks/Script", true))()
+                end
+            })
+            -- Add a new category named Be NPC or Die
+            local BeNPCTab = NewWindow:MakeTab({
+                Name = "Be NPC or Die",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            local BeNPCSection = BeNPCTab:AddSection({
+                Name = "Be NPC or Die Script"
+            })
+            BeNPCSection:AddButton({
+                Name = "Be NPC or Die",
+                Callback = function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BeNpcOrDie"))("t.me/arceusxscripts")
+                end
+            })
+            -- Add a new category named Blox Fruits
+            local BloxFruitsTab = NewWindow:MakeTab({
+                Name = "Blox Fruits",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            local BloxFruitsSection = BloxFruitsTab:AddSection({
+                Name = "Blox Fruits Scripts"
+            })
+            BloxFruitsSection:AddButton({
+                Name = "Redz Hub",
+                Callback = function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+                end
+            })
+            BloxFruitsSection:AddButton({
+                Name = "Aimlock",
+                Callback = function()
+                    loadstring(game:HttpGet('https://rentry.co/forkoritothegoat/raw'))()
+                end
+            })
+            -- Add a new category for credits
+            local CreditsTab = NewWindow:MakeTab({
+                Name = "Credits",
+                Icon = "rbxassetid://4483345998",
+                PremiumOnly = false
+            })
+            local CreditsSection = CreditsTab:AddSection({
+                Name = "Credits"
+            })
+            CreditsSection:AddLabel("UI made by RazaAce")
+        else
+            OrionLib:MakeNotification({
+                Name = "Key Status",
+                Content = "Incorrect Key",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
